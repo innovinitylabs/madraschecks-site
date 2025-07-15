@@ -22,6 +22,36 @@
       margin: 3rem auto;
       text-align: center;
       font-size: 1.2rem;
+      position: relative;
+    }
+    .loom-animation {
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: center;
+    }
+    .thread-row {
+      display: flex;
+      gap: 0.3rem;
+    }
+    .thread-row span {
+      display: block;
+      width: 32px;
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #ffd700, #ffb347, #e63946, #457b9d, #fff8e7);
+      opacity: 0.7;
+      animation: thread-wiggle 1.2s infinite alternate;
+    }
+    .thread-row span:nth-child(2) { animation-delay: 0.2s; }
+    .thread-row span:nth-child(3) { animation-delay: 0.4s; }
+    .thread-row span:nth-child(4) { animation-delay: 0.6s; }
+    .thread-row span:nth-child(5) { animation-delay: 0.8s; }
+    @keyframes thread-wiggle {
+      0% { transform: translateY(0); opacity: 0.7; }
+      50% { transform: translateY(-6px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
     }
     @media (max-width: 700px) {
       .art-iframe { height: 60vh; }
@@ -47,8 +77,15 @@
   </header>
   <main>
     <div id="restricted-message" class="restricted-message">
-      <h2>🚧 WIP / Restricted Area</h2>
-      <p>This art generator is under development.<br>Ask <b>valipokkann</b> for access.<br><br><span style="font-size:0.95em;opacity:0.7;">(Hint: Try the secret code!)</span></p>
+      <div class="loom-animation">
+        <div class="thread-row"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="thread-row"><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="thread-row"><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+      <h2 style="margin-top:1.5rem;">🧵 The Loom Awaits</h2>
+      <p style="font-size:1.1em;">This generator is woven with secrets.<br>
+      Only those who know the <b>ancestral pattern</b> may unlock its threads.<br><br>
+      <span style="font-size:0.95em;opacity:0.7;">(Hint: Type the magic word...)</span></p>
     </div>
     <div id="art-iframe-container" class="art-iframe-container">
       <iframe class="art-iframe" src="/generator-static/" allowfullscreen></iframe>
