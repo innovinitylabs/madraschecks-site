@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloth Texture Generator (p5.js, QQL-style)</title>
+  <style>
+    body {
+      margin: 0;
+      background: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Inter', 'Courier New', monospace;
+      color: #eee;
+    }
+    .controls {
+      margin: 24px 0 12px 0;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .seed-box {
+      background: #333;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      margin-right: 8px;
+      user-select: all;
+      cursor: pointer;
+    }
+    button {
+      background: #444;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #666;
+    }
+    .gallery {
+      margin: 24px 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+    }
+    .gallery-item {
+      background: #222;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .gallery-item img {
+      width: 120px;
+      height: 120px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      object-fit: cover;
+      background: #111;
+    }
+    .gallery-seed {
+      font-size: 0.8rem;
+      color: #aaa;
+      margin-bottom: 4px;
+      word-break: break-all;
+      text-align: center;
+    }
+    .close-gallery {
+      margin-bottom: 16px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <span class="seed-box" id="seedBox" title="Click to copy seed"></span>
+    <button onclick="regenerate()">Regenerate</button>
+    <button onclick="saveCurrent()">Save</button>
+    <button onclick="downloadCurrent()">Download</button>
+    <button onclick="showGallery()">Gallery</button>
+  </div>
+  <div id="canvas-holder"></div>
+  <div id="galleryModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(20,20,20,0.97); z-index:100; overflow:auto; align-items:center; justify-content:center; flex-direction:column;">
+    <button class="close-gallery" onclick="hideGallery()">Close Gallery</button>
+    <div class="gallery" id="gallery"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script>
+let currentSeed = '';
+let canvasEl;
+
+function randomSeedString() {
+  // 16-char hex string
+  return Array.from({length: 16}, () => Math.floor(Math.random()*16).toString(16)).join('');
+}
+
+function setSeed(seed) {
+  currentSeed = seed;
+  randomSeed(parseInt(seed, 16));
+  noiseSeed(parseInt(seed, 16));
+  document.getElementById('seedBox').textContent = 'Seed: ' + seed;
+}
+
+function regenerate(seed) {
+  if (!seed) seed = randomSeedString();
+  setSeed(seed);
+  redraw();
+}
+
+function setup() {
+  let holder = document.getElementById('canvas-holder');
+  let c = createCanvas(600, 600);
+  c.parent(holder);
+  noLoop();
+  regenerate();
+}
+
+function draw() {
+  background(220);
+  let spacing = 7;
+  let threadColors = [
+    color(60, 60, 60),
+    color(90, 90, 90),
+    color(200, 200, 200),
+    color(230, 230, 230)
+  ];
+  // Horizontal threads
+  for (let y = 0; y < height; y += spacing) {
+    let tCol = random(threadColors);
+    let tThick = random(2, 4);
+    stroke(tCol);
+    strokeWeight(tThick);
+    beginShape();
+    let offset = 0;
+    for (let x = 0; x <= width; x += 8) {
+      offset += random(-1, 1.2);
+      vertex(x, y + offset + sin(x * 0.04 + y * 0.01) * 1.5);
+    }
+    endShape();
+  }
+  // Vertical threads
+  for (let x = 0; x < width; x += spacing) {
+    let tCol = random(threadColors);
+    let tThick = random(2, 4);
+    stroke(tCol);
+    strokeWeight(tThick);
+    beginShape();
+    let offset = 0;
+    for (let y = 0; y <= height; y += 8) {
+      offset += random(-1, 1.2);
+      vertex(x + offset + sin(y * 0.04 + x * 0.01) * 1.5, y);
+    }
+    endShape();
+  }
+  // Add intersection highlights
+  for (let y = 0; y < height; y += spacing) {
+    for (let x = 0; x < width; x += spacing) {
+      if (random() < 0.7) {
+        noStroke();
+        fill(255, 255, 255, 30);
+        ellipse(x, y, random(1.2, 2.5));
+      }
+    }
+  }
+  // Add random specks/imperfections
+  for (let i = 0; i < 200; i++) {
+    let sx = random(width);
+    let sy = random(height);
+    let srad = random(0.5, 2.5);
+    noStroke();
+    fill(random([color(240,240,240, 180), color(120,120,120, 120)]));
+    ellipse(sx, sy, srad, srad);
+  }
+}
+
+// Copy seed on click
+seedBox.onclick = function() {
+  navigator.clipboard.writeText(currentSeed);
+  seedBox.textContent = 'Seed: ' + currentSeed + ' (copied!)';
+  setTimeout(() => {
+    seedBox.textContent = 'Seed: ' + currentSeed;
+  }, 1200);
+};
+
+function saveCurrent() {
+  let imgData = canvas.toDataURL('image/png');
+  let gallery = JSON.parse(localStorage.getItem('clothGallery') || '[]');
+  gallery.push({seed: currentSeed, img: imgData});
+  localStorage.setItem('clothGallery', JSON.stringify(gallery));
+  alert('Saved to gallery!');
+}
+
+function showGallery() {
+  let modal = document.getElementById('galleryModal');
+  let galleryDiv = document.getElementById('gallery');
+  galleryDiv.innerHTML = '';
+  let gallery = JSON.parse(localStorage.getItem('clothGallery') || '[]');
+  if (gallery.length === 0) {
+    galleryDiv.innerHTML = '<div style="color:#aaa;">No saved outputs yet.</div>';
+  } else {
+    gallery.forEach(item => {
+      let div = document.createElement('div');
+      div.className = 'gallery-item';
+      let img = document.createElement('img');
+      img.src = item.img;
+      img.alt = 'Cloth texture';
+      img.onclick = () => {
+        hideGallery();
+        regenerate(item.seed);
+      };
+      let seedDiv = document.createElement('div');
+      seedDiv.className = 'gallery-seed';
+      seedDiv.textContent = item.seed;
+      div.appendChild(img);
+      div.appendChild(seedDiv);
+      galleryDiv.appendChild(div);
+    });
+  }
+  modal.style.display = 'flex';
+}
+
+function hideGallery() {
+  document.getElementById('galleryModal').style.display = 'none';
+}
+
+function downloadCurrent() {
+  saveCanvas('cloth_texture_' + currentSeed, 'png');
+}
+  </script>
+</body>
+</html> 
