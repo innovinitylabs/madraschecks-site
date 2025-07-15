@@ -5,20 +5,11 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-main {
-  flex: 1 0 auto;
-}
-body {
-  background: #18191c;
-  color: #f5f5f5;
+  background: #f9f6f1;
+  color: #3a2c1a;
   font-family: 'Inter', Arial, sans-serif;
   margin: 0;
   padding: 0;
-}
-.dark-theme {
-  background: #18191c;
-  color: #f5f5f5;
 }
 h1, h2, h3, h4, h5 {
   font-family: 'Merriweather', serif;
@@ -26,16 +17,18 @@ h1, h2, h3, h4, h5 {
 }
 .tamil-term {
   font-family: 'Noto Sans Tamil', monospace;
-  background: #222;
+  background: #f3e9d2;
   border-radius: 4px;
   padding: 0 4px;
+  color: #a67c52;
 }
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: #151618;
+  background: #f3e9d2;
+  box-shadow: 0 2px 8px rgba(200,180,140,0.07);
 }
 .nav-logo {
   height: 40px;
@@ -48,13 +41,13 @@ h1, h2, h3, h4, h5 {
   padding: 0;
 }
 .nav-menu a {
-  color: #f5f5f5;
+  color: #7c5c2a;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
 .nav-menu a.active, .nav-menu a:hover {
-  color: #ffb347;
+  color: #d32f2f;
 }
 .hero {
   display: flex;
@@ -82,22 +75,22 @@ h1, h2, h3, h4, h5 {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  background: #ffb347;
-  color: #18191c;
+  background: #ffe7b3;
+  color: #7c5c2a;
   transition: background 0.2s;
 }
-.btn-primary { background: #ffb347; color: #18191c; }
-.btn-secondary { background: #222; color: #f5f5f5; }
-.btn-tertiary { background: #333; color: #ffb347; }
-.btn:hover { background: #ffd700; }
+.btn-primary { background: #ffe7b3; color: #7c5c2a; }
+.btn-secondary { background: #f3e9d2; color: #a67c52; }
+.btn-tertiary { background: #fff8e7; color: #d32f2f; }
+.btn:hover { background: #fff8e7; color: #d32f2f; }
 .container {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 footer {
-  background: #151618;
-  color: #aaa;
+  background: #f3e9d2;
+  color: #a67c52;
   text-align: center;
   padding: 2rem 0 1rem 0;
   margin-top: 3rem;
@@ -116,7 +109,7 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.5);
+  background: rgba(255,245,220,0.3);
   z-index: 0;
   pointer-events: none;
 }
