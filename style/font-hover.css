@@ -1,0 +1,10 @@
+.vfont {
+  font-family: 'Merriweather', serif;
+  font-variation-settings: 'wght' 700, 'wdth' 100;
+  transition: font-variation-settings 0.3s;
+  cursor: pointer;
+}
+.vfont:hover {
+  font-variation-settings: 'wght' 900, 'wdth' 150;
+  color: #ffb347;
+} 

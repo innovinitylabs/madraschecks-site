@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art – Madras Checks</title>
+  <link rel="stylesheet" href="../style/layout.css">
+  <script src="../js/konami.js" defer></script>
+  <style>
+    html, body { height: 100%; min-height: 100%; }
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex: 1 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .art-iframe-container { width: 100vw; height: 100%; display: none; }
+    .art-iframe { width: 100vw; height: 80vh; border: none; }
+    .restricted-message {
+      background: #181818;
+      color: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      padding: 3rem 2rem;
+      max-width: 480px;
+      margin: 3rem auto;
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    @media (max-width: 700px) {
+      .art-iframe { height: 60vh; }
+    }
+  </style>
+</head>
+<body class="dark-theme">
+  <header>
+    <nav class="nav">
+      <div class="nav-brand"><img src="../assets/logo.svg" alt="Madras Checks" class="nav-logo"></div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="art.html" class="active">Art</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="press.html">Press</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="merch.html">Merch</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id="restricted-message" class="restricted-message">
+      <h2>🚧 WIP / Restricted Area</h2>
+      <p>This art generator is under development.<br>Ask <b>valipokkann</b> for access.<br><br><span style="font-size:0.95em;opacity:0.7;">(Hint: Try the secret code!)</span></p>
+    </div>
+    <div id="art-iframe-container" class="art-iframe-container">
+      <iframe class="art-iframe" src="/generator-static/" allowfullscreen></iframe>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Madras Checks. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    // Konami code logic: reveal generator iframe, hide restricted message
+    (function() {
+      const code = 'valipokkann';
+      let buffer = '';
+      document.addEventListener('keydown', function(e) {
+        buffer += e.key.toLowerCase();
+        if (buffer.length > code.length) buffer = buffer.slice(-code.length);
+        if (buffer === code) {
+          document.getElementById('restricted-message').style.display = 'none';
+          document.getElementById('art-iframe-container').style.display = 'block';
+        }
+      });
+    })();
+  </script>
+</body>
+</html> 

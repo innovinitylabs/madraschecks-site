@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.45b2d071.css",
+    "main.js": "/static/js/main.42c31090.js",
+    "static/js/488.cccd0e31.chunk.js": "/static/js/488.cccd0e31.chunk.js",
+    "static/media/valipokkann.svg": "/static/media/valipokkann.03c87e8cb2b6896280c6949b2ee1340e.svg",
+    "service-worker.js": "/service-worker.js",
+    "index.html": "/index.html",
+    "main.45b2d071.css.map": "/static/css/main.45b2d071.css.map",
+    "main.42c31090.js.map": "/static/js/main.42c31090.js.map",
+    "488.cccd0e31.chunk.js.map": "/static/js/488.cccd0e31.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45b2d071.css",
+    "static/js/main.42c31090.js"
+  ]
+}

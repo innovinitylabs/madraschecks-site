@@ -1,0 +1,28 @@
+article {
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+article h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+}
+blockquote {
+  background: #222;
+  border-left: 4px solid #ffb347;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  color: #ffb347;
+  font-style: italic;
+}
+.tamil-term {
+  background: #333;
+  color: #ffb347;
+  border-radius: 4px;
+  padding: 0 4px;
+  transition: background 0.2s, color 0.2s;
+}
+.tamil-term:hover {
+  background: #ffb347;
+  color: #18191c;
+} 
