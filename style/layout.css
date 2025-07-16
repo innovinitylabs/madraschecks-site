@@ -41,6 +41,7 @@ body:hover, body:focus {
   padding: 1rem 2rem;
   background: #f3e9d2;
   box-shadow: 0 2px 8px rgba(200,180,140,0.07);
+  z-index: 20; /* nav above overlay and content */
 }
 .nav-logo {
   height: 80px;
@@ -137,7 +138,7 @@ footer {
 .background-overlay {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  z-index: 1;
+  z-index: 2; /* overlay above background-image, below all content */
   background: transparent;
   pointer-events: none;
   display: block !important;
@@ -166,7 +167,7 @@ body:not(.home) .background-overlay {
 .background-image {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
-  z-index: 0;
+  z-index: 1; /* background-image at the very back */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -185,6 +186,7 @@ body:not(.home) .background-overlay {
 /* Remove z-index from header, main, footer to fix nav-menu stacking */
 header, main, footer {
   position: relative;
+  z-index: 10; /* ensure all main content is above overlay */
 } 
 
 /* Timeline styles for history page */
@@ -522,7 +524,7 @@ header, main, footer {
     z-index: 9999;
   }
   .nav-logo { height: 64px; max-width: 160px; }
-  .nav-hamburger { z-index: 1002; }
+  .nav-hamburger { z-index: 10002; }
 } 
 
 .about-hero, .about-content, .contact-hero, .merch-hero, .container, .contact-form-section, .merch-waitlist {
