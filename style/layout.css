@@ -237,19 +237,19 @@ header, main, footer {
 
 .gallery-items {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
   justify-items: center;
   align-items: start;
   margin-top: 2rem;
 }
 .gallery-thumb {
   width: 100%;
-  max-width: 180px;
-  height: 140px;
+  max-width: 260px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(200,180,140,0.10);
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(200,180,140,0.13);
   background: #fff8e7;
   transition: transform 0.18s;
 }
@@ -293,4 +293,72 @@ header, main, footer {
 .merch-form button:hover, .contact-form button:hover {
   background: #fff8e7;
   color: #d32f2f;
+} 
+
+.about-hero, .contact-hero, .merch-hero {
+  margin-top: 4.5rem;
+  margin-bottom: 2.5rem;
+}
+.about-hero h1, .about-content h2,
+.contact-hero h1, .merch-hero h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 12px rgba(120,80,40,0.13), 0 1px 0 #fff8e7;
+}
+.about-content, .about-content ul {
+  font-size: 1.13rem;
+  line-height: 1.7;
+}
+.contact-form-section, .merch-waitlist {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.contact-form, .waitlist-form {
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+.contact-form label, .waitlist-form label {
+  font-size: 1.08rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  color: #a67c52;
+  letter-spacing: 0.01em;
+}
+.contact-form input, .contact-form textarea,
+.waitlist-form input {
+  background: rgba(255,255,255,0.82);
+  border: 1px solid #e0cfa0;
+  border-radius: 7px;
+  font-size: 1.08rem;
+  padding: 0.7rem 1.1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.contact-form button, .waitlist-form button {
+  margin-top: 0.5rem;
+}
+.contact-hero {
+  margin-bottom: 0.2rem;
+}
+.contact-form-section {
+  margin-top: 0.2rem;
+}
+.contact-form {
+  gap: 0.5rem;
+}
+@media (max-width: 700px) {
+  .about-hero, .contact-hero, .merch-hero {
+    margin-top: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+  .about-hero h1, .about-content h2,
+  .contact-hero h1, .merch-hero h1 {
+    font-size: 1.4rem;
+  }
+  .contact-form, .waitlist-form {
+    max-width: 98vw;
+  }
 } 
