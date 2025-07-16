@@ -6,15 +6,22 @@
 }
 
 html, body {
-  font-family: 'EmotionalVF', 'Inter', Arial, sans-serif;
-  --emowght: 400;
-  font-variation-settings: 'wght' var(--emowght);
-  transition: --emowght 0.7s cubic-bezier(.4,1.6,.6,1);
+  /* font-family, font-variation-settings, and transition removed for global uniformity */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+main {
+  flex: 1 0 auto;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'EmotionalVF', 'Merriweather', serif;
-  font-variation-settings: 'wght' 700;
+  /* font-family and font-variation-settings removed for global uniformity */
 }
 
 body:hover, body:focus {
@@ -80,7 +87,6 @@ body:hover, body:focus {
   border-radius: 6px;
   border: none;
   font-size: 1rem;
-  font-weight: 600;
   cursor: pointer;
   background: #ffe7b3;
   color: #7c5c2a;
@@ -99,9 +105,16 @@ footer {
   background: #f3e9d2;
   color: #a67c52;
   text-align: center;
-  padding: 0.75rem 0 0.5rem 0;
-  margin-top: auto;
-  flex-shrink: 0;
+  padding: 0.2rem 0 0.1rem 0;
+  font-size: 0.95rem;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0;
+  position: static;
 }
 @media (max-width: 700px) {
   .nav-menu { flex-direction: column; gap: 0.5rem; }
@@ -117,14 +130,22 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(255,245,220,0.3);
+  background: rgba(255,245,220,0.35); /* Lower opacity for background only */
   z-index: 0;
   pointer-events: none;
 }
 
-body > *:not(.background-overlay) {
-  position: relative;
-  z-index: 1;
+/* Remove global text shadow */
+
+.hero-content {
+  background: rgba(255, 245, 220, 0.85);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  display: inline-block;
+}
+
+.hero-content h1, .hero-content p, .btn {
+  text-shadow: 0 1px 4px rgba(0,0,0,0.18);
 }
 
 /* Remove or comment out any use of bg_texture.jpg as a background */
