@@ -520,3 +520,11 @@ header, main, footer {
   position: relative;
   z-index: 0;
 } 
+
+/* Per-page background blur */
+.blur-none .background-image { backdrop-filter: none !important; }
+.blur-articles .background-image { backdrop-filter: blur(2.5px) !important; }
+.blur-history .background-image { backdrop-filter: blur(1px) !important; }
+.blur-gallery .background-image { backdrop-filter: blur(2px) !important; }
+.blur-about .background-image { backdrop-filter: blur(2.5px) !important; }
+.blur-default .background-image { backdrop-filter: blur(1px) !important; } 
