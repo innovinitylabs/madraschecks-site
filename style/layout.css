@@ -179,3 +179,58 @@ header, main, footer {
   position: relative;
   z-index: 2;
 } 
+
+/* Timeline styles for history page */
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 2.5rem 0 2.5rem 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.timeline-list li {
+  background: rgba(255,245,220,0.92);
+  border-radius: 10px;
+  margin-bottom: 2.2rem;
+  padding: 1.2rem 1.5rem 1.2rem 2.5rem;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(200,180,140,0.07);
+  font-size: 1.08rem;
+}
+.timeline-list li strong {
+  color: #a67c52;
+  font-size: 1.13rem;
+}
+.timeline-list li:before {
+  content: '';
+  position: absolute;
+  left: 1.1rem;
+  top: 1.2rem;
+  width: 12px;
+  height: 12px;
+  background: #d32f2f;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #f3e9d2;
+}
+.timeline-list li:not(:last-child):after {
+  content: '';
+  position: absolute;
+  left: 1.65rem;
+  top: 2.1rem;
+  width: 2px;
+  height: calc(100% - 2.1rem);
+  background: #e0cfa0;
+  z-index: 0;
+}
+@media (max-width: 700px) {
+  .timeline-list {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .timeline-list li {
+    padding: 1rem 0.7rem 1rem 2.2rem;
+    font-size: 0.98rem;
+  }
+} 
