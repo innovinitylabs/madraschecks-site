@@ -341,13 +341,27 @@ header, main, footer {
   margin-top: 0.5rem;
 }
 .contact-hero {
+  min-height: unset;
   margin-bottom: 0.2rem;
+  margin-top: 2.5rem;
 }
 .contact-form-section {
   margin-top: 0.2rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .contact-form {
   gap: 0.5rem;
+  margin-bottom: 0;
+}
+@media (min-width: 700px) {
+  .contact-form-section {
+    min-height: 40vh;
+    justify-content: center;
+  }
 }
 @media (max-width: 700px) {
   .about-hero, .contact-hero, .merch-hero {
@@ -365,4 +379,78 @@ header, main, footer {
 
 .article-card {
   margin-bottom: 2.5rem;
+} 
+
+.waitlist-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+.waitlist-form label {
+  margin-bottom: 0;
+  margin-right: 0.7rem;
+  font-size: 1.13rem;
+  color: #a67c52;
+  font-weight: 600;
+}
+.waitlist-form input[type="email"] {
+  flex: 1 1 220px;
+  min-width: 180px;
+  max-width: 320px;
+  padding: 0.7rem 1.1rem;
+  border-radius: 7px;
+  border: 1px solid #e0cfa0;
+  font-size: 1.08rem;
+  background: rgba(255,255,255,0.92);
+  margin-right: 0.7rem;
+  box-sizing: border-box;
+}
+.waitlist-form button {
+  padding: 0.7rem 1.6rem;
+  border-radius: 7px;
+  font-size: 1.08rem;
+  height: 44px;
+  background: #ffe7b3;
+  color: #7c5c2a;
+  border: none;
+  font-weight: 600;
+  transition: background 0.18s;
+  box-shadow: 0 2px 8px rgba(200,180,140,0.08);
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.waitlist-form button:hover {
+  background: #fff8e7;
+  color: #d32f2f;
+}
+@media (max-width: 700px) {
+  .waitlist-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+  .waitlist-form label {
+    margin-right: 0;
+    margin-bottom: 0.2rem;
+  }
+  .waitlist-form input[type="email"] {
+    margin-right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .waitlist-form button {
+    width: 100%;
+    height: 44px;
+  }
+} 
+
+.about-hero {
+  margin-bottom: 0 !important;
+}
+.about-content {
+  margin-top: 0 !important;
 } 
