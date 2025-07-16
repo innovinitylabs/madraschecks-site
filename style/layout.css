@@ -512,4 +512,7 @@ header, main, footer {
   .nav-menu.open {
     display: flex;
   }
+  .nav-logo { height: 64px; max-width: 160px; }
+  .nav-hamburger { z-index: 1002; }
+  .nav-menu, .nav-menu.open { z-index: 1001; }
 } 
