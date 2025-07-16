@@ -172,7 +172,16 @@ body:not(.home) .background-overlay {
   background-repeat: no-repeat;
   pointer-events: none;
   background-color: #f3e9d2;
+  /* no blur here */
 }
+
+/* Per-page background blur on overlay */
+.blur-none .background-overlay { backdrop-filter: none !important; }
+.blur-articles .background-overlay { backdrop-filter: blur(2.5px) !important; }
+.blur-history .background-overlay { backdrop-filter: blur(1px) !important; }
+.blur-gallery .background-overlay { backdrop-filter: blur(2px) !important; }
+.blur-about .background-overlay { backdrop-filter: blur(2.5px) !important; }
+.blur-default .background-overlay { backdrop-filter: blur(1px) !important; }
 /* Remove z-index from header, main, footer to fix nav-menu stacking */
 header, main, footer {
   position: relative;
