@@ -10,4 +10,18 @@ body *:hover {
   font-variation-settings: 'wght' 1000, 'wdth' 150;
   color: #d32f2f;
   transition: font-variation-settings 0.35s cubic-bezier(.4,1.6,.6,1), color 0.3s;
+}
+/* Only home and art pages get red color on hover */
+.home body *:hover, .blur-default.art-page body *:hover {
+  font-variation-settings: 'wght' 1000, 'wdth' 150;
+  color: #d32f2f;
+  text-shadow: 0 1px 4px rgba(120,80,40,0.18);
+  transition: font-variation-settings 0.35s cubic-bezier(.4,1.6,.6,1), color 0.3s, text-shadow 0.3s;
+}
+/* All other pages: no color change, but add a small text shadow */
+body:not(.home):not(.art-page) *:hover {
+  font-variation-settings: 'wght' 1000, 'wdth' 150;
+  color: inherit;
+  text-shadow: 0 1px 4px rgba(120,80,40,0.18);
+  transition: font-variation-settings 0.35s cubic-bezier(.4,1.6,.6,1), text-shadow 0.3s;
 } 
