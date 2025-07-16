@@ -1,4 +1,4 @@
-body, body * {
+html, body, body * {
   font-family: 'EmotionalVF', Arial, sans-serif !important;
   font-variation-settings: 'wght' -1000, 'wdth' 100;
   font-weight: 400;
