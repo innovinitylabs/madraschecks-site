@@ -13,9 +13,19 @@
     '../assets/bg8.png'
   ];
   const idx = Math.floor(Math.random() * bgImages.length);
-  document.body.style.backgroundImage = `url('${bgImages[idx]}')`;
-  document.body.style.backgroundSize = 'cover';
-  document.body.style.backgroundPosition = 'center';
-  document.body.style.backgroundRepeat = 'no-repeat';
-  document.body.style.backgroundAttachment = 'fixed';
+  function setBackground() {
+    const bgDiv = document.querySelector('.background-image');
+    if (bgDiv) {
+      bgDiv.style.backgroundImage = `url('${bgImages[idx]}')`;
+      bgDiv.style.backgroundSize = 'cover';
+      bgDiv.style.backgroundPosition = 'center';
+      bgDiv.style.backgroundRepeat = 'no-repeat';
+      bgDiv.style.backgroundAttachment = 'fixed';
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setBackground);
+  } else {
+    setBackground();
+  }
 })(); 

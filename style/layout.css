@@ -134,7 +134,13 @@ footer {
 
 /* Overlay for background readability */
 .background-overlay {
-  display: none !important;
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 1;
+  background: rgba(255,245,220,0.45); /* light beige, semi-opaque */
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  display: block !important;
 }
 
 /* Remove global text shadow */
@@ -153,4 +159,18 @@ footer {
 /* Remove or comment out any use of bg_texture.jpg as a background */
 .hero-bg, .bg-texture {
   display: none !important;
+} 
+
+.background-image {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+header, main, footer {
+  position: relative;
+  z-index: 2;
 } 
