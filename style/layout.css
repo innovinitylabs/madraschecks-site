@@ -172,7 +172,6 @@ body:not(.home) .background-overlay {
   background-repeat: no-repeat;
   pointer-events: none;
   background-color: #f3e9d2;
-  backdrop-filter: blur(3px);
 }
 /* Remove z-index from header, main, footer to fix nav-menu stacking */
 header, main, footer {
