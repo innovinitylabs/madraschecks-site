@@ -6,11 +6,13 @@
     '../assets/bg4.png',
     '../assets/bg8.png'
   ];
-  const idx = Math.floor(Math.random() * bgImages.length);
   function setBackground() {
     const bgDiv = document.querySelector('.background-image');
     if (bgDiv) {
-      bgDiv.style.backgroundImage = `url('${bgImages[idx]}')`;
+      // Use bg8.png as default for home page
+      const isHome = document.body.classList.contains('home');
+      const bgUrl = isHome ? '../assets/bg8.png' : bgImages[Math.floor(Math.random() * bgImages.length)];
+      bgDiv.style.backgroundImage = `url('${bgUrl}')`;
       bgDiv.style.backgroundSize = 'cover';
       bgDiv.style.backgroundPosition = 'center';
       bgDiv.style.backgroundRepeat = 'no-repeat';
