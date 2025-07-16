@@ -175,9 +175,9 @@ body:not(.home) .background-overlay {
   pointer-events: none;
   background-color: #f3e9d2;
 }
+/* Remove z-index from header, main, footer to fix nav-menu stacking */
 header, main, footer {
   position: relative;
-  /* z-index: 2; */
 } 
 
 /* Timeline styles for history page */
