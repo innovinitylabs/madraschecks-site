@@ -16,6 +16,11 @@
   <header>
     <nav class="nav">
       <div class="nav-brand"><img src="assets/madras checks.png" alt="Madras Checks" class="nav-logo"></div>
+      <button class="nav-hamburger" aria-label="Open menu" tabindex="0">
+        <span class="hamburger-line" style="background:#d32f2f;"></span>
+        <span class="hamburger-line" style="background:#ffe7b3;"></span>
+        <span class="hamburger-line" style="background:#7c5c2a;"></span>
+      </button>
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="art.html">Art</a></li>
@@ -38,11 +43,13 @@
     </section>
     <section class="merch-waitlist">
       <div class="container">
-        <form class="waitlist-form">
+        <form class="waitlist-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeI7Pm8vueTsPQdc89ILmGTLSXZXLLBYNtLhAftEQp8n7Lh5g/formResponse" method="POST" target="hidden_iframe" onsubmit="document.getElementById('waitlist-thankyou').style.display='block';">
           <label for="email">Join Waitlist</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          <input type="email" id="email" name="entry.810586949" placeholder="Enter your email" required>
           <button type="submit" class="btn btn-primary">Join</button>
         </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+        <div id="waitlist-thankyou" style="display:none; color:#a67c52; font-size:1.13rem; margin-top:1.2rem; text-align:center;">Thank you for joining the waitlist!</div>
       </div>
     </section>
   </main>
