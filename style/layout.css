@@ -362,3 +362,7 @@ header, main, footer {
     max-width: 98vw;
   }
 } 
+
+.article-card {
+  margin-bottom: 2.5rem;
+} 
