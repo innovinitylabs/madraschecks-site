@@ -517,3 +517,8 @@ header, main, footer {
   .nav-logo { height: 64px; max-width: 160px; }
   .nav-hamburger { z-index: 1002; }
 } 
+
+.about-hero, .about-content, .contact-hero, .merch-hero, .container, .contact-form-section, .merch-waitlist {
+  position: relative;
+  z-index: 0;
+} 
