@@ -503,6 +503,8 @@ header, main, footer {
 @media (max-width: 700px) {
   .nav-hamburger {
     display: flex !important;
+    z-index: 10002;
+    position: relative;
   }
   .nav-menu {
     display: none;
@@ -521,10 +523,15 @@ header, main, footer {
   }
   .nav-menu.open {
     display: flex;
-    z-index: 9999;
+    z-index: 20000;
+    position: fixed;
+    top: 70px;
+    right: 1.5rem;
+    left: auto;
+    width: auto;
+    max-width: 90vw;
   }
   .nav-logo { height: 64px; max-width: 160px; }
-  .nav-hamburger { z-index: 10002; }
 } 
 
 .about-hero, .about-content, .contact-hero, .merch-hero, .container, .contact-form-section, .merch-waitlist {
