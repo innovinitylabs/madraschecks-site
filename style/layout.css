@@ -1,19 +1,24 @@
+@font-face {
+  font-family: 'EmotionalVF';
+  src: url('../assets/emotional-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 html, body {
-  height: 100%;
+  font-family: 'EmotionalVF', 'Inter', Arial, sans-serif;
+  --emowght: 400;
+  font-variation-settings: 'wght' var(--emowght);
+  transition: --emowght 0.7s cubic-bezier(.4,1.6,.6,1);
 }
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: #f9f6f1;
-  color: #3a2c1a;
-  font-family: 'Inter', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+
 h1, h2, h3, h4, h5 {
-  font-family: 'Merriweather', serif;
-  font-weight: 700;
+  font-family: 'EmotionalVF', 'Merriweather', serif;
+  font-variation-settings: 'wght' 700;
+}
+
+body:hover, body:focus {
+  --emowght: 800;
 }
 .tamil-term {
   font-family: 'Noto Sans Tamil', monospace;
