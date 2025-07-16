@@ -234,3 +234,63 @@ header, main, footer {
     font-size: 0.98rem;
   }
 } 
+
+.gallery-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: start;
+  margin-top: 2rem;
+}
+.gallery-thumb {
+  width: 100%;
+  max-width: 180px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(200,180,140,0.10);
+  background: #fff8e7;
+  transition: transform 0.18s;
+}
+.gallery-thumb:hover {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 4px 16px rgba(211,47,47,0.13);
+}
+/* Merch & Contact form improvements */
+.merch-hero, .contact-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40vh;
+  text-align: center;
+}
+.merch-form, .contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+.merch-form input, .contact-form input, .contact-form textarea {
+  padding: 0.7rem 1.1rem;
+  border-radius: 7px;
+  border: 1px solid #e0cfa0;
+  font-size: 1.08rem;
+  margin-right: 0.7rem;
+}
+.merch-form button, .contact-form button {
+  padding: 0.7rem 2.1rem;
+  border-radius: 7px;
+  background: #ffe7b3;
+  color: #7c5c2a;
+  border: none;
+  font-size: 1.08rem;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.merch-form button:hover, .contact-form button:hover {
+  background: #fff8e7;
+  color: #d32f2f;
+} 
