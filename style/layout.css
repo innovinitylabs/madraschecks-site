@@ -139,13 +139,10 @@ footer {
   top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: 1;
   background: rgba(255,245,220,0.45); /* light beige, semi-opaque */
-  /* Remove blur from overlay */
-  /* backdrop-filter: blur(1px); */
   pointer-events: none;
   display: block !important;
 }
 body:not(.home) .background-overlay {
-  /* backdrop-filter: blur(3px); */
 }
 
 /* Remove global text shadow */
@@ -175,7 +172,6 @@ body:not(.home) .background-overlay {
   background-repeat: no-repeat;
   pointer-events: none;
   background-color: #f3e9d2;
-  /* Add blur to background image only */
   backdrop-filter: blur(3px);
 }
 /* Remove z-index from header, main, footer to fix nav-menu stacking */
