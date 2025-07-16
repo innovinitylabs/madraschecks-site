@@ -1,6 +1,8 @@
 body, body * {
   font-family: 'EmotionalVF', Arial, sans-serif !important;
   font-variation-settings: 'wght' -1000, 'wdth' 100;
+  font-weight: 400;
+  font-synthesis: none;
   transition: font-variation-settings 2.8s cubic-bezier(.4,1.6,.6,1), color 0.7s;
   cursor: pointer;
 }
