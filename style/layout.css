@@ -143,6 +143,9 @@ footer {
   pointer-events: none;
   display: block !important;
 }
+body:not(.home) .background-overlay {
+  backdrop-filter: blur(3px);
+}
 
 /* Remove global text shadow */
 
