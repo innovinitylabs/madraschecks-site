@@ -22,4 +22,20 @@
   } else {
     setBackground();
   }
+})();
+
+// Hamburger menu logic for mobile nav
+(function() {
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function() {
+      navMenu.classList.toggle('open');
+    });
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+      });
+    });
+  }
 })(); 
