@@ -8,14 +8,14 @@
   const desktopLinks = document.querySelectorAll('.desktop-nav a');
 
   function openToast() {
-    toast.hidden = false;
-    overlay.hidden = false;
+    toast.classList.add('open');
+    overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
     toast.focus();
   }
   function closeToast() {
-    toast.hidden = true;
-    overlay.hidden = true;
+    toast.classList.remove('open');
+    overlay.classList.remove('open');
     document.body.style.overflow = '';
   }
   if (hamburger && toast && overlay && closeBtn) {
@@ -26,7 +26,7 @@
       link.addEventListener('click', closeToast);
     });
     document.addEventListener('keydown', function(e) {
-      if (!toast.hidden && (e.key === 'Escape' || e.key === 'Esc')) closeToast();
+      if (toast.classList.contains('open') && (e.key === 'Escape' || e.key === 'Esc')) closeToast();
     });
   }
   // Highlight current page in both navs

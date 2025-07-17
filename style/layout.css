@@ -603,6 +603,14 @@ header, main, footer {
 .blur-default .background-image { backdrop-filter: blur(1px) !important; } 
 
 /* --- Toast Nav Styles --- */
+.nav-toast,
+.nav-toast-overlay {
+  display: none;
+}
+.nav-toast.open,
+.nav-toast-overlay.open {
+  display: block;
+}
 .nav-toast-overlay {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
@@ -663,7 +671,7 @@ header, main, footer {
 }
 @media (max-width: 700px) {
   .desktop-nav { display: none !important; }
-  .nav-toast, .nav-toast-overlay { display: block; }
+  /* .nav-toast, .nav-toast-overlay are only shown with .open class */
 }
 @media (min-width: 701px) {
   .nav-toast, .nav-toast-overlay { display: none !important; }
