@@ -488,127 +488,6 @@ header, main, footer {
   margin-top: 0 !important;
 } 
 
-/* --- Accordion Nav Styles --- */
-.nav-accordion {
-  width: 100%;
-  background: #f3e9d2;
-  box-shadow: 0 2px 8px rgba(200,180,140,0.07);
-  border-radius: 0 0 12px 12px;
-  margin: 0;
-  padding: 0;
-  z-index: 30000;
-}
-.nav-accordion-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #7c5c2a;
-  cursor: pointer;
-  margin-left: 1.2rem;
-}
-.nav-accordion-header {
-  width: 100%;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  color: #7c5c2a;
-  text-align: left;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  font-weight: 600;
-  outline: none;
-  transition: background 0.2s;
-}
-.nav-accordion-header[aria-expanded="true"] {
-  background: #ffe7b3;
-}
-.nav-accordion-panel {
-  padding: 0 2rem 1rem 2rem;
-  background: #f3e9d2;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 2px 8px rgba(200,180,140,0.07);
-}
-.nav-menu {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-  justify-content: flex-start;
-}
-.nav-menu a {
-  color: #7c5c2a;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-  font-size: 1.15rem;
-}
-.nav-menu a.active, .nav-menu a:hover {
-  color: #d32f2f;
-}
-@media (max-width: 700px) {
-  .nav-accordion-toggle {
-    display: block;
-  }
-  .nav-accordion-header {
-    display: none;
-  }
-  .nav-accordion-panel {
-    padding: 0 1.2rem 1rem 1.2rem;
-  }
-  .nav-menu {
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-  }
-  .nav-menu a {
-    width: 100%;
-    display: block;
-    padding: 0.7rem 0;
-    font-size: 1.15rem;
-  }
-}
-@media (min-width: 701px) {
-  .nav-accordion-header {
-    display: none;
-  }
-  .nav-accordion-panel {
-    display: block !important;
-    padding: 0 2rem 0 2rem;
-    background: none;
-    box-shadow: none;
-  }
-} 
-
-.about-hero, .about-content, .contact-hero, .merch-hero, .container, .contact-form-section, .merch-waitlist {
-  position: relative;
-  z-index: 0;
-} 
-
-/* Per-page background blur */
-.blur-none .background-image { backdrop-filter: none !important; }
-.blur-articles .background-image { backdrop-filter: blur(2.5px) !important; }
-.blur-history .background-image { backdrop-filter: blur(1px) !important; }
-.blur-gallery .background-image { backdrop-filter: blur(2px) !important; }
-.blur-about .background-image { backdrop-filter: blur(2.5px) !important; }
-.blur-default .background-image { backdrop-filter: blur(1px) !important; } 
-
-@media (min-width: 701px) {
-  .nav-menu {
-    display: flex !important;
-    position: static !important;
-    width: auto !important;
-    background: none !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-    align-items: center !important;
-    gap: 1.5rem !important;
-  }
-} 
-
 /* --- Responsive Nav Styles --- */
 .nav-hamburger {
   display: none;
@@ -689,3 +568,16 @@ header, main, footer {
     display: none !important;
   }
 } 
+
+.about-hero, .about-content, .contact-hero, .merch-hero, .container, .contact-form-section, .merch-waitlist {
+  position: relative;
+  z-index: 0;
+} 
+
+/* Per-page background blur */
+.blur-none .background-image { backdrop-filter: none !important; }
+.blur-articles .background-image { backdrop-filter: blur(2.5px) !important; }
+.blur-history .background-image { backdrop-filter: blur(1px) !important; }
+.blur-gallery .background-image { backdrop-filter: blur(2px) !important; }
+.blur-about .background-image { backdrop-filter: blur(2.5px) !important; }
+.blur-default .background-image { backdrop-filter: blur(1px) !important; } 
