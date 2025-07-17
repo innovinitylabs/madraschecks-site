@@ -7,6 +7,7 @@
 
 html, body {
   /* font-family, font-variation-settings, and transition removed for global uniformity */
+  overflow-x: hidden;
 }
 
 body {
@@ -15,6 +16,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 main {
   flex: 1 0 auto;
@@ -45,7 +47,7 @@ body:hover, body:focus {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%; /* fix overflow from 100vw */
   right: 0;
 }
 .nav-logo {
@@ -552,3 +554,12 @@ main, footer {
 .blur-gallery .background-image { backdrop-filter: blur(2px) !important; }
 .blur-about .background-image { backdrop-filter: blur(2.5px) !important; }
 .blur-default .background-image { backdrop-filter: blur(1px) !important; } 
+
+@media (max-width: 700px) {
+  .nav-menu,
+  .nav-menu.open {
+    max-width: 98vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+} 
