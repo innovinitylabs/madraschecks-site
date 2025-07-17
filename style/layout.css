@@ -615,7 +615,7 @@ header, main, footer {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
   background: rgba(40,30,10,0.22);
-  z-index: 40000;
+  z-index: 999998;
   transition: opacity 0.2s;
 }
 .nav-toast {
@@ -625,7 +625,7 @@ header, main, footer {
   background: #f3e9d2;
   box-shadow: 0 8px 32px rgba(200,180,140,0.18);
   border-radius: 0 0 18px 18px;
-  z-index: 41000;
+  z-index: 999999;
   padding: 1.5rem 1.2rem 1.2rem 1.2rem;
   display: flex;
   flex-direction: column;

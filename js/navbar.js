@@ -29,6 +29,11 @@
       if (toast.classList.contains('open') && (e.key === 'Escape' || e.key === 'Esc')) closeToast();
     });
   }
+  // Defensive: always close toast on page load
+  if (toast && overlay) {
+    toast.classList.remove('open');
+    overlay.classList.remove('open');
+  }
   // Highlight current page in both navs
   function highlightLinks(links) {
     const path = window.location.pathname.split('/').pop();
