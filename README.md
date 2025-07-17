@@ -1,3 +1,0 @@
-# 🧵 Madras Checks — Full Website Build (Cursor + Pages CMS)
-
-// ... existing README content ... 
