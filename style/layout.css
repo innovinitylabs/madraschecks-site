@@ -41,7 +41,12 @@ body:hover, body:focus {
   padding: 1rem 2rem;
   background: #f3e9d2;
   box-shadow: 0 2px 8px rgba(200,180,140,0.07);
-  z-index: 20; /* nav above overlay and content */
+  z-index: 30000; /* nav above everything */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  right: 0;
 }
 .nav-logo {
   height: 80px;
@@ -184,7 +189,12 @@ body:not(.home) .background-overlay {
 .blur-about .background-overlay { backdrop-filter: blur(2.5px) !important; }
 .blur-default .background-overlay { backdrop-filter: blur(1px) !important; }
 /* Remove z-index from header, main, footer to fix nav-menu stacking */
-header, main, footer {
+header {
+  padding-top: 100px; /* add space for fixed nav, adjust as needed */
+  z-index: 10;
+  position: relative;
+}
+main, footer {
   position: relative;
   z-index: 10; /* ensure all main content is above overlay */
 } 
@@ -503,33 +513,29 @@ header, main, footer {
 @media (max-width: 700px) {
   .nav-hamburger {
     display: flex !important;
-    z-index: 10002;
+    z-index: 32000;
     position: relative;
   }
   .nav-menu {
     display: none;
-    position: absolute;
-    top: 70px;
-    right: 1.5rem;
-    background: #f3e9d2;
-    box-shadow: 0 4px 24px rgba(200,180,140,0.13);
-    border-radius: 12px;
-    flex-direction: column;
-    gap: 1.2rem;
-    padding: 1.5rem 2.2rem;
-    z-index: 9999;
-    min-width: 180px;
-    align-items: flex-end;
-  }
-  .nav-menu.open {
-    display: flex;
-    z-index: 20000;
     position: fixed;
     top: 70px;
     right: 1.5rem;
     left: auto;
     width: auto;
     max-width: 90vw;
+    background: #f3e9d2;
+    box-shadow: 0 4px 24px rgba(200,180,140,0.13);
+    border-radius: 12px;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.5rem 2.2rem;
+    z-index: 31000;
+    min-width: 180px;
+    align-items: flex-end;
+  }
+  .nav-menu.open {
+    display: flex;
   }
   .nav-logo { height: 64px; max-width: 160px; }
 } 
