@@ -1,29 +1,38 @@
-// Responsive navbar logic for Madras Checks
+// Toast-style responsive navbar logic for Madras Checks
 (function() {
   const hamburger = document.querySelector('.nav-hamburger');
-  const navMenu = document.querySelector('.nav-menu');
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      navMenu.classList.toggle('open');
-    });
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('open');
-      });
-    });
-    document.addEventListener('click', function(e) {
-      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && e.target !== hamburger) {
-        navMenu.classList.remove('open');
-      }
-    });
-    window.addEventListener('hashchange', () => navMenu.classList.remove('open'));
-    window.addEventListener('popstate', () => navMenu.classList.remove('open'));
+  const toast = document.querySelector('.nav-toast');
+  const overlay = document.querySelector('.nav-toast-overlay');
+  const closeBtn = document.querySelector('.nav-toast-close');
+  const toastLinks = document.querySelectorAll('.toast-nav a');
+  const desktopLinks = document.querySelectorAll('.desktop-nav a');
+
+  function openToast() {
+    toast.hidden = false;
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    toast.focus();
   }
-  // Highlight current page
-  if (navMenu) {
+  function closeToast() {
+    toast.hidden = true;
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+  }
+  if (hamburger && toast && overlay && closeBtn) {
+    hamburger.addEventListener('click', openToast);
+    closeBtn.addEventListener('click', closeToast);
+    overlay.addEventListener('click', closeToast);
+    toastLinks.forEach(link => {
+      link.addEventListener('click', closeToast);
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!toast.hidden && (e.key === 'Escape' || e.key === 'Esc')) closeToast();
+    });
+  }
+  // Highlight current page in both navs
+  function highlightLinks(links) {
     const path = window.location.pathname.split('/').pop();
-    navMenu.querySelectorAll('a').forEach(link => {
+    links.forEach(link => {
       if (link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')) {
         link.classList.add('active');
       } else {
@@ -31,4 +40,6 @@
       }
     });
   }
+  highlightLinks(toastLinks);
+  highlightLinks(desktopLinks);
 })(); 
