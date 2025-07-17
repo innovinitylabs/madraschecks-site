@@ -31,7 +31,8 @@
   const hamburger = document.querySelector('.nav-hamburger');
   const navMenu = document.querySelector('.nav-menu');
   if (hamburger && navMenu) {
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
       navMenu.classList.toggle('open');
     });
     navMenu.querySelectorAll('a').forEach(link => {
@@ -39,5 +40,14 @@
         navMenu.classList.remove('open');
       });
     });
+    // Close menu if clicking outside
+    document.addEventListener('click', function(e) {
+      if (navMenu.classList.contains('open') && !navMenu.contains(e.target) && e.target !== hamburger) {
+        navMenu.classList.remove('open');
+      }
+    });
+    // Optional: close menu on route change (hashchange/popstate)
+    window.addEventListener('hashchange', () => navMenu.classList.remove('open'));
+    window.addEventListener('popstate', () => navMenu.classList.remove('open'));
   }
 })(); 
