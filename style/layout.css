@@ -488,7 +488,27 @@ header, main, footer {
   margin-top: 0 !important;
 } 
 
-/* --- Responsive Nav Styles --- */
+/* --- Responsive Nav Styles for navbar.html --- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #f3e9d2;
+  box-shadow: 0 2px 8px rgba(200,180,140,0.07);
+  z-index: 30000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 70px;
+  box-sizing: border-box;
+}
+.nav-logo {
+  height: 80px;
+  max-width: 220px;
+  width: auto;
+}
 .nav-hamburger {
   display: none;
   background: none;
